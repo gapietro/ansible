@@ -1,7 +1,3 @@
 ---
-- name: Install Ansible Python 2 Dependencies
-  with_items:
-  - python-firewall
-  dnf:
-    name: "{{item}}"
-    state: present
+- name: Install Ansible Python Dependiencies
+  yum: name=python-firewall state=present
