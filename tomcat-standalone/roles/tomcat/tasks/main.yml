@@ -38,7 +38,7 @@
 
 - name: deploy iptables rules
   template: src=iptables-save dest=/etc/sysconfig/iptables
-  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '6'"
+  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
   notify: restart iptables
 
 - name: insert firewalld rule for tomcat http port
