@@ -32,9 +32,13 @@
   - name: Add Notepad to Applications
     win_rededit:
        path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications\Notepad
-       name: 
-          - Name 
-               data: notepad
-          - Path 
-               data: "c:\Windows\Notepad.exe"
+       name: Name 
+       data: "Notepad"
+       state: present
+
+  - name: Set Notepad execution path
+    win_rededit:
+       path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications\Notepad
+       name: Path 
+       data: "C:\Windows\Notepad.exe"
        state: present
