@@ -42,3 +42,17 @@
        name: Path 
        data: C:\Windows\Notepad.exe
        state: present
+
+       - name: Add RStudio to Applications
+    win_regedit:
+       path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications\RStudio
+       name: Name 
+       data: "rstudio"
+       state: present
+
+  - name: Set Notepad execution path
+    win_regedit:
+       path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications\Rstudio
+       name: Path 
+       data: C:\Program Files\RStudio\bin\rstudio.exe
+       state: present
