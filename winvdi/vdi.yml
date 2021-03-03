@@ -17,7 +17,7 @@
        state: present 
 
   - name: Update fDisabledAllowList registry entry to allow vApps
-    win_rededit: 
+    win_regedit: 
        path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList
        name: fDisabledAllowList
        data: 1
@@ -25,19 +25,19 @@
        state: present 
     
   - name: Create Applications registry key 
-    win_rededit: 
+    win_regedit: 
        path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications
        state: present 
        
   - name: Add Notepad to Applications
-    win_rededit:
+    win_regedit:
        path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications\Notepad
        name: Name 
        data: "Notepad"
        state: present
 
   - name: Set Notepad execution path
-    win_rededit:
+    win_regedit:
        path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications\Notepad
        name: Path 
        data: C:\Windows\Notepad.exe
