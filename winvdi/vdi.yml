@@ -7,8 +7,8 @@
        - chocolatey
        - chocolatey-core.extension
        - notepadplusplus.install
-       - pyhton3
-       - r.latest
+       - python3
+       - r
        - r.studio
        - 7zip.install
        - putty 
