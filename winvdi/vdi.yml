@@ -40,5 +40,5 @@
     win_rededit:
        path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications\Notepad
        name: Path 
-       data: "C:\Windows\Notepad.exe"
+       data: C:\Windows\Notepad.exe
        state: present
