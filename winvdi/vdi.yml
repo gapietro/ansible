@@ -1,9 +1,40 @@
 - name: Install VDI Apps
   hosts: all
   tasks:
-  - name: Install Chocolatey
+  - name: Install Chocolatey and VDI Apps
     win_chocolatey:
        name: 
        - chocolatey
        - chocolatey-core.extension
+       - notepadplusplus.install
+       - pyhton3
+       - r.latest
+       - r.studio
+       - 7zip.install
+       - putty 
+       - winscp
+       - filezilla
        state: present 
+
+  - name: Update fDisabledAllowList registry entry to allow vApps
+    win_rededit: 
+       path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList
+       name: fDisabledAllowList
+       data: 1
+       type: dword
+       state: present 
+    
+  - name: Create Applications registry key 
+    win_rededit: 
+       path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications
+       state: present 
+       
+  - name: Add Notepad to Applications
+    win_rededit:
+       path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications\Notepad
+       name: 
+          - Name 
+               data: notepad
+          - Path 
+               data: "c:\Windows\Notepad.exe"
+       state: present
